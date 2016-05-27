@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="RepeatController">
+      {{courses}}
+      <ul>
+        <li ng-repeat="course in courses">
+            {{course.name}}({{course.code}})
+        </li>
+      </ul>
+      <div>
+        <form ng-submit="addCourse()">
+          Course code : <input type="text" ng-model="courseCode"><br/>
+          Course name : <input type="text" ng-model="courseName"><br/>
+          <input type="submit" value="Add Course">
+        </form>
+      </div>
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp", []);
+
+        app.controller("RepeatController", function($scope){
+            $scope.courses = [
+              {name:"Maths", code:"MAT101"},
+              {name:"Physics", code:"PHY201"},
+              {name:"Chemistry", code:"CHE101"}
+            ];
+
+            $scope.addCourse = function() {
+                $scope.courses.push({name:$scope.courseName, code:$scope.courseCode});
+                $scope.courseCode = "";
+                $scope.courseName = "";
+            };
+        });
+    </script>
+  </body>
+</html>

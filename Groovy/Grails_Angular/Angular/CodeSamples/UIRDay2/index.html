@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <script src="../angular/angular.js"></script>
+    <script src="../angular/angular-ui-router.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('rapp', ['ui.router']);
+
+      app.config(function($stateProvider, $urlRouterProvider){
+
+        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.when('/home', '/home/default');
+
+        $stateProvider
+        .state('login', {
+          url : '/login',
+          templateUrl: 'login-tpl.html',
+          controller : 'loginController'
+        })
+        .state('home', {
+          url : '/home',
+          templateUrl : 'home-tpl.html'
+        })
+        .state('home.default', {
+          url : '/default',
+          templateUrl : 'defhome-tpl.html'
+        })
+        .state('home.categories', {
+          url : '/categories',
+          templateUrl : 'catlist-tpl.html'
+        }).state('home.catshow', {
+          url : '/category/:id',
+          templateUrl : 'catshow-tpl.html',
+          controller : 'catshowController'
+        });
+      });
+
+      app.controller('loginController', function($scope, $state){
+        $scope.loginClicked = function() {
+          $state.go('home');
+        }
+      });
+      app.controller('catshowController', function($scope, $stateParams){
+        $scope.catid = $stateParams.id;
+      });
+    </script>
+  </head>
+  <body ng-app="rapp">
+    <div ui-view>
+
+    <div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ngclass Sample</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .back {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body ng-app>
+    <p ng-class="{red:isRed, bold:isBold, back:isBack}">Some text here</p>
+    <input type="checkbox"  ng-model="isRed"> Red <br/>
+    <input type="checkbox"  ng-model="isBold"> Bold <br/>
+    <input type="checkbox"  ng-model="isBack"> Back
+    <script src="../angular/angular.js"></script>
+  </body>
+</html>

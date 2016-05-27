@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grails Angular Demo - List</title>
+    <script src="js/angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('gapp', []);
+
+        app.controller('categoryController', function($scope, $http){
+            $scope.categories = [];
+            $scope.message = '';
+
+            var listCategories= function() {
+                $http.get('/GADemo/categories')
+                        .success(function(data, status, headers, config){
+                            $scope.categories = data;
+
+                        }).error(function(data, status, headers, config){
+                            switch(status) {
+                                case 400 : {
+                                    $scope.message = "Some error occured";
+                                }
+                                case 500 : {
+                                    $scope.message = "Internal error occured";
+                                    break;
+                                }
+                            }
+                            console.log(status);
+                        });
+            }
+
+            listCategories();
+        });
+    </script>
+</head>
+<body ng-app="gapp">
+<h1>It works!</h1>
+<div ng-controller="categoryController">
+    {{message}}<br/>
+    <ul>
+        <li ng-repeat="cat in categories">{{cat.code}}</li>
+    </ul>
+</div>
+</body>
+</html>

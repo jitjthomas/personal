@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body ng-app="myApp">
+	<div ng-controller="HelloController">
+		<input type="text" ng-model="who">
+		<button type="button" ng-click="greet()">Greet</button>
+		<p>
+			{{greetingText}}
+		</p>
+	</div>
+	<script src="../angular/angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+
+		app.controller('HelloController', function($scope){
+			$scope.who = "World";
+			$scope.greetingText = "Hello, " + $scope.who + "!";
+
+			$scope.greet = function () {
+				$scope.greetingText = "Hello, " + $scope.who + "!";
+			};
+		});
+	</script>
+	</body>
+</html>

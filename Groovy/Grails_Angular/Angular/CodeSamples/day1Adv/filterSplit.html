@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Split Filter</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="splitController">
+      {{text | split:':' | join}}<br/>
+    </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+
+      app.controller('splitController', function($scope) {
+          $scope.text = "a:b:c:d:e:f";
+      });
+
+      app.filter('split', function(){
+          return function(input, separator) {
+            if (separator === undefined)
+              separator = ',';
+            var result = input.split(separator);
+            return result;
+          };
+      });
+
+      app.filter('join', function() {
+        return function(input, separator) {
+          if (separator === undefined)
+            separator = ',';
+          var result = input.join(separator);
+          return result;
+        };
+      });
+    </script>
+  </body>
+</html>

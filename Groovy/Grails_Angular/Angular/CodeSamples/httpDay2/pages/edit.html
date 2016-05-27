@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grails Angular Demo - List</title>
+    <script src="js/angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('gapp', []);
+
+        app.controller('categoryController', function($scope, $http){
+            $scope.categories = [];
+            $scope.message = '';
+            $scope.editPanelVisible = false;
+
+            var listCategories= function() {
+                $http.get('/GADemo/categories')
+                        .success(function(data, status, headers, config){
+                            $scope.categories = data;
+
+                        }).error(function(data, status, headers, config){
+                            switch(status) {
+                                case 400 : {
+                                    $scope.message = "Some error occured";
+                                }
+                                case 500 : {
+                                    $scope.message = "Internal error occured";
+                                    break;
+                                }
+                            }
+                            console.log(status);
+                        });
+            }
+
+            listCategories();
+
+            $scope.editCategory = function(catid) {
+                console.log(catid);
+                $http.get('/GADemo/category/' + catid)
+                        .success(function(data, status, headers, config){
+                            $scope.editcat = data;
+                            $scope.editPanelVisible=true;
+
+                        }).error(function(data, status, headers, config){
+                            $scope.message = data.message;
+                        });
+            };
+
+            $scope.updateCategory = function(category) {
+                $http.put('/GADemo/category/' + category.id, category)
+                        .success(function(data, status, headers, config){
+                            $scope.message = data.message + ' with id: ' + data.id;
+                            $scope.editcat = {};
+                            $scope.editPanelVisible = false;
+                            listCategories();
+                        }).error(function(data, status, headers, config){
+                            $scope.message = data.message;
+                        });
+            };
+
+        });
+    </script>
+</head>
+<body ng-app="gapp">
+<h1>It works!</h1>
+<div ng-controller="categoryController">
+    {{message}}<br/>
+    <table>
+        <tr>
+            <td>Code</td>
+            <td>Name</td>
+            <td>description</td>
+            <td>Action</td>
+        </tr>
+        <tr ng-repeat="cat in categories">
+            <td>{{cat.code}}</td>
+            <td>{{cat.name}}</td>
+            <td>{{cat.description}}</td>
+            <td><input type="button" value="Edit" ng-click="editCategory(cat.id)"/></td>
+        </tr>
+    </table>
+    <div ng-show="editPanelVisible">
+        <form name="editcategory", ng-submit="updateCategory(editcat)">
+            <table>
+                <tr>
+                    <td>Code</td>
+                    <td><input type="text" ng-model="editcat.code"/></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" ng-model="editcat.name"/></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" ng-model="editcat.description"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="update"/></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

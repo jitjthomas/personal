@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="validationController">
+      <form name="courseForm">
+      Course name : <input type="text" ng-model="name" name="courseName" ng-required="true"><br/>
+      <span ng-show="courseForm.courseName.$error.required">Please enter course name</span><br/>
+      Course code : <input type="text" ng-model="code" name="courseCode" ng-minlength="6"><br/>
+      <span ng-show="courseForm.courseCode.$error.minlength">Please enter course code with minimum 6 chars</span><br/>
+    </form>
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+      app.controller('validationController', function($scope){
+
+      });
+    </script>
+  </body>
+</html>

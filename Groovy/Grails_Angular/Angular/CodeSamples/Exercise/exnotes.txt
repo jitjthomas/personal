@@ -1,0 +1,34 @@
+Part 1 - Intor
+1. Please redo the demo (hello) and hello with controller
+
+Part 2 - Directives
+1. Temperature conversion with ng-change, $watch, ng-submit
+2. Add a form to add a course
+3. Do the ng-show sample using ng-hide
+4. Redo the ng-show with ng-if
+5. Change text color, background etc. using a list of checkboxes (object style),
+textboxes (list of styles)
+6. Apply one style using radio-buttons
+7. Complete the course selection drop down sample
+8. Include a page using ng-include
+
+Part 3 - Filters & validations
+1. Search page for course using name, code and any field
+2. Try all other filters
+3. Add validations to course creation page
+4. Do directives 1, 2, 3
+5. Who and how using the controller and scope variables
+      <greet how="{{greetHow}}" who="{{greetWho}}"/>
+6. Write the spanish directve
+
+
+
+Part 4 - Advanced (Controllers, Services, Directives, Filters & Routing)
+1. Instead of nested controllers use 2 controllers in Parallel using rootScope
+2. Try and see the emit and broadcast with 5 nested controllers
+3. Redo the factory, service and provider samples
+
+Part 5 - Server access & Case Study
+1. Complete the categories CRUD using $http
+2. Complete the template navigation with products
+3. Integrate Category & product CRUD in grails and finish the application

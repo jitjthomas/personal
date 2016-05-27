@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="OptionsController">
+    <select ng-model="selectedCourse1" ng-options="course.name for course in courses">
+        <option value="">Select a Course</option>
+    </select>
+    Selected Course1 : {{selectedCourse1}}<br/>
+    <select ng-model="selectedCourse2" ng-options="course.code as course.name for course in courses">
+      <option value="">Select another Course</option>
+    </select>
+    Selected Course2 : {{selectedCourse2}}<br/>
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp", []);
+
+        app.controller("OptionsController", function($scope){
+            $scope.courses = [
+              {name:"Maths", code:"MAT101"},
+              {name:"Physics", code:"PHY201"},
+              {name:"Chemistry", code:"CHE201"},
+              {name:"Zoology", code:"ZOO201"}
+            ];
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="ShowController">
+      <p ng-if='showPara'>
+	This paragraph is added to the DOM
+  if showPara is true and removed otherwise
+</p>
+<button ng-click='toggleVisibility()'>{{caption}}</button>
+    </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+
+      app.controller("ShowController", function($scope){
+          $scope.showPara = false;
+          $scope.caption = "Show the secret"
+
+          $scope.toggleVisibility = function() {
+            $scope.showPara = !$scope.showPara;
+            $scope.caption = ($scope.showPara)? "Hide the secret" : "Show the secret";
+          };
+      });
+    </script>
+  </body>
+</html>

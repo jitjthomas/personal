@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Disable</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="PingController">
+      <input type="button" value="Ping" ng-disabled="pinged" ng-click="pingClicked()">
+      <input type="button" value="Pong" ng-disabled="ponged" ng-click="pongClicked()">
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+      app.controller("PingController", function($scope){
+        $scope.pinged = false;
+        $scope.ponged = true;
+
+        $scope.pingClicked = function() {
+          $scope.pinged = true;
+          $scope.ponged = false;
+        };
+      $scope.pongClicked = function() {
+        $scope.pinged = false;
+        $scope.ponged = true;
+      };
+      });
+    </script>
+  </body>
+</html>

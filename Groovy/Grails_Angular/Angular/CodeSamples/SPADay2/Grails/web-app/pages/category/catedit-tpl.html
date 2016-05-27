@@ -1,0 +1,23 @@
+<div ng-controller="editCategoryController">
+    <form name="editcategory", ng-submit="updateCategory(editcat)">
+        <table>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" ng-model="editcat.code"/></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" ng-model="editcat.name"/></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" ng-model="editcat.description"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="update"/></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    {{message}}
+</div>

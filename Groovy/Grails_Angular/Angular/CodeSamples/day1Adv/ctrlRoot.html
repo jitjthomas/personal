@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nested Service</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="ListController">
+      <ul>
+        <li ng-repeat="fruit in fruits">
+          {{fruit}}
+        </li>
+      </ul>
+    </div>
+      <div ng-controller="AddController">
+        <input type="text" ng-model="newFruit">
+        <input type="button" value="Add" ng-click="addFruit()">
+      </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+
+      app.controller("ListController", function($scope, $rootScope){
+        $rootScope.fruits = ["Apple", "Orange", "Banana"];
+        $scope.fruits = $rootScope.fruits;
+      });
+
+      app.controller("AddController", function($scope, $rootScope){
+        $scope.addFruit = function() {
+          $rootScope.fruits.push($scope.newFruit);
+          $scope.newFruit = "";
+        };
+      });
+    </script>
+  </body>
+</html>

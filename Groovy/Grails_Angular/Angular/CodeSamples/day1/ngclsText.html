@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ngclass Sample</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body ng-app>
+    <p ng-class="style">Some text here</p>
+    <input type="text" ng-model="style">
+    <script src="../angular/angular.js"></script>
+  </body>
+</html>

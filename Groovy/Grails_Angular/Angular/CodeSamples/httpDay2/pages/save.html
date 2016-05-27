@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grails Angular Demo - Save</title>
+    <script src="js/angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('gapp', []);
+
+        app.controller('saveCategoryController', function($scope, $http){
+            $scope.category = {};
+            $scope.message = '';
+
+            $scope.saveCategory = function(category) {
+                $http.post('/GADemo/category', category)
+                        .success(function(data, status, headers, config){
+                            $scope.message = data.message + ' with id: ' + data.id;
+                            $scope.category = {};
+                        }).error(function(data, status, headers, config){
+                            $scope.message = data.message;
+                        });
+            };
+
+        });
+    </script>
+</head>
+<body ng-app="gapp">
+<div ng-controller="saveCategoryController">
+    <form name="createcategory", ng-submit="saveCategory(category)">
+        <table>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" ng-model="category.code"/></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" ng-model="category.name"/></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" ng-model="category.description"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="save"/></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    {{message}}
+</div>
+
+</body>
+</html>

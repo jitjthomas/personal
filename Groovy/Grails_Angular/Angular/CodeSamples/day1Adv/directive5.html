@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directives</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="greetController">
+      <div>
+        <greet how="greetHow" who="greetWho"/>
+      </div>
+      <input type="button" ng-click="changeLanguage()" value="Spanish">
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+
+      app.controller('greetController', function($scope){
+        $scope.greetHow = "Hello";
+        $scope.greetWho = "World";
+
+        $scope.changeLanguage = function() {
+          $scope.greetHow = "Hola";
+          $scope.greetWho = "World";
+        };
+      });
+
+      app.directive('greet', function() {
+        return {
+          restrict : 'E',
+          scope : {
+            how : '=how',
+            who : '=who'
+          },
+          template : "<p>{{how}}, {{who}}!</p>",
+          replace : true
+        };
+      });
+    </script>
+  </body>
+</html>

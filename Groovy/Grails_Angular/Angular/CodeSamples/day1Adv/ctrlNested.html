@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nested Controllers</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="OuterController">
+      Simple <input type="text" ng-model="name"> <br/>
+      Object <input type="text" ng-model="user.name"> <br/>
+    <div ng-controller="InnerController">
+      Simple <input type="text" ng-model="name"> <br/>
+      Object <input type="text" ng-model="user.name"> <br/>
+      Parent <input type="text" ng-model="$parent.name"> <br/>
+    </div>
+    </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+
+      app.controller("OuterController", function($scope){
+          $scope.name="Peter";
+          $scope.user = {name : "John"};
+      });
+
+      app.controller("InnerController", function($scope){
+          $scope.name="Jill";
+          $scope.user.name="Alpha";
+      });
+    </script>
+  </body>
+</html>

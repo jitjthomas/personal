@@ -1,0 +1,22 @@
+<div ng-controller="categoryController">
+    <input type="button" value="New Category" ng-click="createCategory()"/>
+    <hr/>
+<table border="1">
+    <tr>
+        <td>Code</td>
+        <td>Name</td>
+        <td>description</td>
+        <td>Action</td>
+    </tr>
+    <tr ng-repeat="cat in categories">
+        <td><a ui-sref="home.showcat({'catid' : cat.id})">{{cat.code}}</a></td>
+        <td>{{cat.name}}</td>
+        <td>{{cat.description}}</td>
+        <td><input type="button" value="Edit" ng-click="editCategory(cat.id)"/>
+            <input type="button" value="Delete" ng-click="deleteCategory(cat.id)"/>
+        </td>
+    </tr>
+</table>
+    <b color="red"><i>{{message}}</i></b>
+    <br/>
+</div>

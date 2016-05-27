@@ -1,0 +1,9 @@
+--- 
+cursor_positions: 
+  - :path: anag.groovy
+    :cursor_offset: 22
+    :timestamp: 2010-10-17 19:08:18 +05:30
+  - :path: Align.groovy
+    :cursor_offset: 413
+    :timestamp: 2010-10-18 14:02:36 +05:30
+files_to_retain: 0

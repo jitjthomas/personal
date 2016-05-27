@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="ShowController">
+      <p ng-show='showPara'>
+	Here, it’s ng-show and ng-hide that do our work. They provide equivalent but inverse
+	functionality for showing and hiding based on the expression you pass to them. That
+	is, ng-show will show its element when its expression is true and hide it when false. The
+	ng-hide hides when true and shows when false. You should use whichever makes more
+	sense to express your intention.These directives work by setting the element styles to display:block to
+	show and display:none to hide as appropriate.
+</p>
+<button ng-click='toggleVisibility()'>{{caption}}</button>
+    </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+
+      app.controller("ShowController", function($scope){
+          $scope.showPara = false;
+          $scope.caption = "Show the secret"
+
+          $scope.toggleVisibility = function() {
+            $scope.showPara = !$scope.showPara;
+            $scope.caption = ($scope.showPara)? "Hide the secret" : "Show the secret";
+          };
+      });
+    </script>
+  </body>
+</html>

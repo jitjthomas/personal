@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="MyApp">
+    <div ng-controller="stemController">
+      count at stem level : {{count}}<br/>
+      <hr/>
+      <div ng-controller="branchController">
+        count at branch level : {{count}}<br/>
+        <input type="button" ng-click="$emit('incrEvent')" value="emit">
+        <input type="button" ng-click="$broadcast('incrEvent')" value="broadcast">
+        <hr/>
+        <div ng-controller="leafController">
+          count at leaf level : {{count}}<br/>
+        </div>
+      </div>
+    </div>
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("MyApp", []);
+
+        app.controller("stemController", function($scope){
+            $scope.count = 0;
+            $scope.$on('incrEvent', function() {
+              $scope.count++;
+            });
+        });
+        app.controller("branchController", function($scope){
+            $scope.count = 0;
+            $scope.$on('incrEvent', function() {
+              $scope.count++;
+            });
+        });
+        app.controller("leafController", function($scope){
+            $scope.count = 0;
+            $scope.$on('incrEvent', function() {
+              $scope.count++;
+            });
+        });
+    </script>
+  </body>
+</html>

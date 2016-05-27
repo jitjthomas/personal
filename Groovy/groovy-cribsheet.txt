@@ -1,0 +1,105 @@
+export GROOVY_HOME=/Users/jittoj/software/groovy-2.4.5
+export PATH=$GROOVY_HOME/bin:$PATH
+
+groovysh -> groovy shell
+:q -> to quit the shell
+
+groovyConsole - opens an editor to type groovy code
+
+Grails:
+-------
+
+1. Domain class - maps to table
+2. Controller class - for CRUD operations
+
+
+1-M relationship:
+-----------------
+
+hasMany - no cascade delete
+belongsTo - cascade delete
+
+bootStrap.groovy -> to perform bootstrap operations
+
+Adding a new action:
+--------------------
+
+CircleController
+
+	def name(long id) {
+		def circle = Circle.get(id)
+		render "${circle.name}"
+	}
+Request -> http://localhost:8080/MyGrailsProject/circle/name/2
+
+	def nameHtml(long id) {
+		def circle = Circle.get(id)
+		render "<h1>${circle.name}<h1>"
+	}
+	
+	def circleXml(long id) {
+		def circle = Circle.get(id)
+		render circle as XML
+	}
+	
+	def circleJson(long id) {
+		def circle = Circle.get(id)
+		render circle as JSON
+	}
+
+Specify responce type in request:
+---------------------------------
+
+Request -> http://localhost:8080/MyGrailsProject/circle/name/2.xml
+
+UrlMappings.groovy -> "/$controller/$action?/$id?(.$format)?"{
+
+For action:
+
+def list() {
+respond Circle.list()
+}
+
+the request http://localhost:8080/MyGrailsProject/circle/list.json
+
+will return
+
+[{"class":"com.ellucian.project.Circle","id":1,"description":"Discuss Java","name":"Java","owner":{"class":"com.ellucian.project.User","id":1}},
+{"class":"com.ellucian.project.Circle","id":2,"description":"Discuss Groovy","name":"Groovy","owner":{"class":"com.ellucian.project.User","id":1}}]
+
+
+
+Create an object automatically using request map:
+-------------------------------------------------
+
+def circleInstance = new Circle()
+circleInstance.properties = request.JSON -> all the attributes in the request will be mapped to Circle attributes
+
+Flash Scope:
+-----------
+
+To save the information between URL redirects
+
+Validations:
+------------
+
+If you are writing a ReSTful Service then it is important to do all the validations at the server side.
+
+On the client side you can use JS to do the validation, but may not be suitable for all scenarios.
+
+Filters:
+--------
+
+Apply logic before, after calling an action.
+
+Codec:
+------
+
+Any class that ends with codec will be treated as a codec. We can use this to encode/decode passwords. It should be created in grails-app/utils.
+
+Grails security plugin:
+-----------------------
+
+To implement security is an application
+
+

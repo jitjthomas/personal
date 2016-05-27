@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directives</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="greetController">
+      <div>
+        <greet how="greetHow" who="greetWho" colors="changeColor()" style="color:{{textColor}}"/>
+      </div>
+    </div>
+
+    <script src="../angular/angular.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+
+      app.controller('greetController', function($scope){
+        $scope.greetHow = "Hello";
+        $scope.greetWho = "World";
+        $scope.isRed = false;
+        $scope.textColor = "black";
+
+        $scope.changeColor = function() {
+          $scope.isRed = !$scope.isRed;
+          $scope.textColor = $scope.isRed? "red": "black";
+        };
+      });
+
+      app.directive('greet', function() {
+        return {
+          restrict : 'E',
+          scope : {
+            how : '=',
+            who : '=',
+            colors : '&colors'
+          },
+          template : '<p ng-click="colors()">{{how}}, {{who}}!</p>',
+          replace : true
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ngclass Sample</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body ng-app>
+    <p ng-class="style">Some text here</p>
+    <input type="radio" ng-model="style" name="color" value="red"> Red </br>
+    <input type="radio" ng-model="style" name="color" value="blue"> Blue</br>
+    <input type="radio" ng-model="style" name="color" value="green"> Green</br>
+    <script src="../angular/angular.js"></script>
+  </body>
+</html>
