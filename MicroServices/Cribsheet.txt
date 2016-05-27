@@ -1,0 +1,28 @@
+To create a Spring Data Application using MongoDB:
+
+https://github.com/caxqueiroz/MigratingAMonolithApplicationToCloudNative/blob/master/sessions/day_01/session_05/lab_12/lab_12.adoc
+
+http://docs.nodejitsu.com/
+
+https://www.npmjs.com/
+
+http://passportjs.org/ - authentication extension for jode.js
+
+
+
+https://github.com/caxqueiroz/MigratingAMonolithApplicationToCloudNative/blob/master/sessions/day_02/session_07/lab_20/lab_20.adoc
+
+http://lattice.cf/docs/
+
+http://nodeguide.com/beginner.html
+
+https://www.npmjs.com/package/loadbalancer
+
+http://blog.rackspace.com/coding-in-the-cloud-rule-3-use-a-stateless-design-whenever-possible/
+
+http://whatis.techtarget.com/definition/stateless-app
+
+https://developers.google.com/identity/protocols/OpenIDConnect?hl=en
+
+http://reactivex.io/intro.html
+
