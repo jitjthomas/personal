@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../angular/angular.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+
+    <p greet></p>
+    <print name="Jitto" age="35"/>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+      app.directive("greet", function() {
+        return {
+          template: "<b> How are you? </b>",
+          replace: true
+        };
+      });
+      app.directive("print", function() {
+        return {
+          restrict: "E",
+          scope : {
+            name1 : '@name',
+            age1 : '@age'
+          },
+          template: "<p>{{name1}} is {{age1}} years old!!!</p>",
+          replace: true
+        };
+      });
+    </script>
+  </body>
+</html>

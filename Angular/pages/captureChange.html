@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+
+    <script src="../angular/angular.js"></script>
+
+    <div ng-controller="ChangeController">
+      <input type="text" ng-model="celcius" ng-change="convert()"></br>
+      {{faranheit}}
+    </div>
+
+    <!-- define you custom controller -->
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+      app.controller('ChangeController', function ($scope) {
+          $scope.celcius = 0.0;
+          $scope.convert = function() {
+            $scope.faranheit = ($scope.celcius * 9 / 5) + 32;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+    <script src="../angular/angular.js"></script>
+    <div ng-controller="SearchController">
+      <input type="text" name="search" ng-model="searchCourse"><br>
+      <ul>
+        <li ng-repeat="course in courses | filter:searchCourse">
+          {{course.name}} - {{course.code}}
+        </li>
+      </ul><br>
+      <input type="text" name="search" ng-model="searchCurrency"><br>
+      <ul>
+        <li ng-repeat="currency in currencies | filter:searchCurrency">
+          {{currency.name}} - {{currency.code}}
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+      app.controller("SearchController", function($scope) {
+        $scope.courses = [
+          {name:"Maths", code:"MAT01"},
+          {name:"Physics", code:"PHY002"},
+          {name:"Physics", code:"BIO002"},
+          {name:"Chemisry", code:"CHE111"}
+        ];
+        $scope.currencies = [
+          {name:"Rupee", code:"₹"},
+          {name:"Dollar", code:"$"},
+          {name:"Pound", code:"£"},
+          {name:"Yen", code:"¥"}
+        ];
+      });
+    </script>
+  </body>
+</html>

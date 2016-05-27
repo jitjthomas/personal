@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../angular/angular.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-app="myApp">
+
+    <p greet></p>
+    <print />
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+      app.directive("greet", function() {
+        return {
+          template: "<b> How are you? </b>",
+          replace: true
+        };
+      });
+      app.directive("print", function() {
+        return {
+          restrict: "E",
+          template: "<p>How are you?</p>",
+          replace: true
+        };
+      });
+    </script>
+  </body>
+</html>

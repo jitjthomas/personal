@@ -1,0 +1,64 @@
+Angular
+=======
+
+Create a new project structure with angular and pages folders, and copy angular.js to angular pages.
+In pages folder create an HTML file.
+
+Hello.html:
+-----------
+
+1. <body ng-app>
+2. <script src="../angular/angular.js"></script>
+3. <input type="text" ng-model="who"></br>
+4. Hello {{who}}
+
+Creating a controller:
+----------------------
+
+<div ng-controller="HelloController">
+      <input type="text" ng-model="who"></br>
+      <!-- map a click event to the button -->
+      <button type="button" name="button" ng-click="greet()">Greet</button>
+      {{greetingText}}
+</div>
+
+<script type="text/javascript">
+      var app = angular.module('myApp', []);
+      app.controller('HelloController', function ($scope) {
+        $scope.who = "World";
+        $scope.greetingText = "Hello" + $scope.who + "!";
+        //operation to peform when button is clicked
+        $scope.greet = function() {
+          $scope.greetingText = "Hello" + $scope.who + "!";
+        }
+      });
+</script>
+    
+
+Capturing events:
+-----------------
+
+We can either use -> ng-change = "convert" on the control
+
+or -> $scope.$watch('celcius', convert); in the custom controller
+
+Emit and Broadcast:
+-------------------
+
+Send events across controllers
+
+Custom Directives:
+------------------
+
+Code reuse
+
+Grails/Angular Project Structure:
+---------------------------------
+
+web-app
+	-----js
+			----- angular
+						----- angular.js
+	-----pages
+			----- index.html
+

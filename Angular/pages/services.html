@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../angular/angular.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="ListFruitController">
+      <ul>
+        <li ng-repeat="fruit in fruits">
+          {{fruit}}
+        </li>
+      </ul>
+    </div>
+
+    <div ng-controller="AddFruitController">
+      <input type="text" ng-model="newFruit">
+      <input type="button" value="Add" ng-click="addFruit()">
+    </div>
+
+
+    <script type="text/javascript">
+      var app = angular.module("myApp", []);
+
+      app.controller("ListFruitController", function($scope, FruitService) {
+        $scope.fruits = FruitService.list();
+      });
+
+      app.controller("AddFruitController", function ($scope, FruitService) {
+        $scope.addFruit = function() {
+          FruitService.add($scope.newFruit);
+          $scope.newFruit = "";
+        }
+      });
+
+      app.factory("FruitService", function() {
+        var fruits = ["Mango", "Apple", "Grapes"];
+        return {
+          list : function () {
+            return fruits;
+          },
+          add : function (aFruit) {
+            fruits.push(aFruit);
+          }
+        };
+      });
+
+    </script>
+  </body>
+</html>
