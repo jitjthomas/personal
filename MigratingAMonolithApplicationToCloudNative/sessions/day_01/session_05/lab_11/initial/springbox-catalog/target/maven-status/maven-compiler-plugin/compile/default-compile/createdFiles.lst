@@ -1,0 +1,7 @@
+io/springbox/catalog/controllers/GenreController.class
+io/springbox/catalog/controllers/MovieController.class
+io/springbox/catalog/repositories/MovieRepository.class
+io/springbox/catalog/domain/Movie.class
+io/springbox/catalog/SpringboxCatalogApplication.class
+io/springbox/catalog/domain/Genre.class
+io/springbox/catalog/repositories/GenreRepository.class

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.springbox.catalog.SpringboxCatalogApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.002 sec - in io.springbox.catalog.SpringboxCatalogApplicationTests

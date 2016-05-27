@@ -1,0 +1,4 @@
+io/springbox/reviews/domain/Review.class
+io/springbox/reviews/repositories/ReviewRepository.class
+io/springbox/reviews/SpringboxReviewsApplication.class
+io/springbox/reviews/controllers/ReviewController.class

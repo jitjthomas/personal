@@ -1,0 +1,7 @@
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/controllers/MovieController.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/repositories/MovieRepository.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/domain/Genre.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/SpringboxCatalogApplication.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/repositories/GenreRepository.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/controllers/GenreController.java
+/Users/jittoj/Projects/MicroServices/MigratingAMonolithApplicationToCloudNative/sessions/day_01/session_05/lab_11/initial/springbox-catalog/src/main/java/io/springbox/catalog/domain/Movie.java
